@@ -63,12 +63,88 @@ class Sprite{
 		
 	}
     
-	function show(timeSeconds){}
-	function hide(timeSeconds){}
+	/*
+	 * Sets sprite to be visible at given time in seconds
+	 *
+	 * @param timeSeconds - time in seconds
+	 */
+	function show(timeSeconds){
+		sprite.visible = true;
+	}
+	
+	
+	/*
+	 * Sets sprite to be hidden at given time in seconds
+	 *
+	 * @param timeSeconds - time in seconds
+	 */
+	function hide(timeSeconds){
+		sprite.visible = false;
+	}
+	
+	
+	/*
+	 * constructor
+	 * The way to create an "object type", is to use an object constructor function.
+	 *
+	 *
+	 * @param name - name of sprite
+	 * @param pose - sprite's list of poses
+	 * @param file - name of the file
+	 * @param height - height of the sprite
+	 */
 	function setPose(timeSeconds, pose){}
+	
+	
+	/*
+	 * constructor
+	 * The way to create an "object type", is to use an object constructor function.
+	 *
+	 *
+	 * @param name - name of sprite
+	 * @param pose - sprite's list of poses
+	 * @param file - name of the file
+	 * @param height - height of the sprite
+	 */
 	function moveTo(timeSeconds, point){}
+	
+	
+	/*
+	 * constructor
+	 * The way to create an "object type", is to use an object constructor function.
+	 *
+	 *
+	 * @param name - name of sprite
+	 * @param pose - sprite's list of poses
+	 * @param file - name of the file
+	 * @param height - height of the sprite
+	 */
 	function moveToSmooth(timeSeconds, point){}
+	
+	
+	/*
+	 * constructor
+	 * The way to create an "object type", is to use an object constructor function.
+	 *
+	 *
+	 * @param name - name of sprite
+	 * @param pose - sprite's list of poses
+	 * @param file - name of the file
+	 * @param height - height of the sprite
+	 */
 	function sizeTo(timeSeconds, spriteHeight){}
+	
+	
+	/*
+	 * constructor
+	 * The way to create an "object type", is to use an object constructor function.
+	 *
+	 *
+	 * @param name - name of sprite
+	 * @param pose - sprite's list of poses
+	 * @param file - name of the file
+	 * @param height - height of the sprite
+	 */
 	function sizeToSmooth(timeSeconds, spriteHeight){}
 	
 	
