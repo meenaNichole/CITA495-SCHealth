@@ -1,0 +1,28 @@
+Web Browsers do not allow HTML/JavaScript code to directly
+access files on the client side because of security risk.
+To develop and test Web apps we can setup a local host Web server
+that lets us use our PC/notebook as if it were a remote file server.
+
+The Python language provides such a utility.
+Download and install the latest Python version (3.x or later).
+Note the installation folder path.
+
+Edit run_local.bat to refer to the installation folder of python.exe
+Save run_local.bat into the home or root folder where your Web app
+.HTML files reside.
+
+double-click on the run_local.bat to launch the Python Web server
+in your Web app home folder.  This will simulate the effect that 
+the files in your home folder are coming from a Web server (local host).
+This will allow you to test HTML/JavaScript code that refers to 
+file resources located physically on your computer.
+The IP address 127.0.0.1 denotes local host - or this computer.
+The :8000 denotes the port number.  Change the number if another 
+program on your computer uses port 8000.
+
+copy & paste this URL into your web browser.
+http://127.0.0.1:8000/YourWebProgram.html
+
+ start chrome http://127.0.0.1:8000/index.html
+
+
