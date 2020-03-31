@@ -9,3 +9,5 @@ To run the current html implementation of this file:
 3.) Edit the run_local.bat to refer to the installation folder of python.exe.
 4.) Save the batch file into the home or root folder where you placed the files.
 5.) Double click the batch file.
+
+Note: currently running this file should simply show a black screen.
