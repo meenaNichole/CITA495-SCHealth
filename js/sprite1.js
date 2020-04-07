@@ -84,16 +84,15 @@ class Sprite{
 	
 	
 	/*
-	 * constructor
-	 * The way to create an "object type", is to use an object constructor function.
+	 * Sets active visible version of sprite
 	 *
-	 *
-	 * @param name - name of sprite
-	 * @param pose - sprite's list of poses
-	 * @param file - name of the file
-	 * @param height - height of the sprite
+	 * @param timeSeconds - time in seconds
+	 * @param pose - current pose
 	 */
-	function setPose(timeSeconds, pose){}
+	function setPose(timeSeconds, pose){
+		
+		
+	}
 	
 	
 	/*
