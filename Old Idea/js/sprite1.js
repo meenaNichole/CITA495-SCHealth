@@ -51,7 +51,7 @@ class Sprite{
 	create(){
 		
 		textureLoader = new THREE.TextureLoader();
-		var spriteImageMap = textureLoader.load(fileString);
+		var spriteImageMap = textureLoader.load(this.fileString);
 		var spriteMaterial = new THREE.SpriteMaterial( { map: spriteImageMap, color: 0xffffff } );
 		var sprite = new THREE.Sprite(spriteMaterial);
 		
