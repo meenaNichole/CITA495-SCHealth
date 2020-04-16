@@ -14,6 +14,12 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/footerStyle.css">
 	<link rel="stylesheet" href="css/headerStyle.css">
+	
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="css/thumbnail-gallery.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
@@ -32,7 +38,7 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 				<h1><a href="index.html">SC Health<span>Comic</span></a></h1>
 
 				<nav>
-					<a href="index.html" class="selected">Create a Comic!</a>
+					<a href="index.html">Create a Comic!</a>
 					<a href="about.html">About</a>
 					<a href="view.html" class="selected">Examples</a>
 					<a href="quiz.html">Quiz Creator</a>
@@ -40,10 +46,92 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 			</div>
 
 </header>
-	<div id = "container">
-		<h1>Examples</h1>
-	</div>
-		
+	<div class="container gallery-container">
+
+    <h1>Examples of Comics</h1>
+
+    <p class="page-description text-center">Each comic is centered around a specific issue.</p>
+    
+    <div class="tz-gallery">
+
+        <div class="row">
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="https://m.media-amazon.com/images/I/41LtBaDGDlL._SR500,500_.jpg">
+                        <img src="https://m.media-amazon.com/images/I/41LtBaDGDlL._SR500,500_.jpg" alt="Park">
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="../images/bridge.jpg">
+                        <img src="../images/bridge.jpg" alt="Bridge">
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="../images/tunnel.jpg">
+                        <img src="../images/tunnel.jpg" alt="Tunnel">
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="../images/coast.jpg">
+                        <img src="../images/coast.jpg" alt="Coast">
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="../images/rails.jpg">
+                        <img src="../images/rails.jpg" alt="Rails">
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="../images/traffic.jpg">
+                        <img src="../images/traffic.jpg" alt="Traffic">
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
 
 
 
