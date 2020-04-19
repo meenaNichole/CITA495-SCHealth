@@ -4,7 +4,7 @@ var width = window.innerWidth;
       var stage = new Konva.Stage({
         container: 'container',
         width: 800,
-        height: 500
+        height: 600
       });
       var layer = new Konva.Layer();
       stage.add(layer);
@@ -220,7 +220,8 @@ var width = window.innerWidth;
 	  
 	  
 //-------------------------------------------------------------------------------------------------------------------------------------------------	  
-	  /*
+//-----------------------------------------------Transform method----------------------------------------------------------------------------------	
+	/*
 	 * Transformer
 	 * The way to transform something
 	 *
@@ -244,3 +245,58 @@ var width = window.innerWidth;
         tr.attachTo(e.target);
         layer.draw();
       });
+	  
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------Right-click Menu-------------------------------------------------------------------------
+
+
+/*
+      stage.on('dblclick dbltap', function() {
+        // add a new shape
+        var newShape = new Konva.Circle({
+          x: stage.getPointerPosition().x,
+          y: stage.getPointerPosition().y,
+          radius: 10 + Math.random() * 30,
+          fill: Konva.Util.getRandomColor(),
+          shadowBlur: 10
+        })
+        layer.add(newShape);
+        layer.draw();
+      });
+	  
+*/
+
+      // setup menu
+      let currentShape;
+      var menuNode = document.getElementById('menu');
+     
+
+      document.getElementById('delete-button').addEventListener('click', () => {
+        currentShape.destroy();
+        layer.draw();
+      });
+
+      window.addEventListener('click', () => {
+        // hide menu 
+          menuNode.style.display = 'none';
+      })
+
+
+      stage.on('contextmenu', function(e) {
+        // prevent default behavior
+        e.evt.preventDefault();
+        if (e.target === stage) {
+          // if we are on empty place of the stage we will do nothing
+          return;
+        }
+        currentShape = e.target;
+        // show menu
+        menuNode.style.display = 'initial';
+        var containerRect = stage.container().getBoundingClientRect();
+        menuNode.style.top = containerRect.top + stage.getPointerPosition().y + 4 +'px';
+        menuNode.style.left = containerRect.left + stage.getPointerPosition().x + 4 + 'px';
+      });
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
