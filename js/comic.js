@@ -3,8 +3,8 @@ var width = window.innerWidth;
 
       var stage = new Konva.Stage({
         container: 'container',
-        width: width,
-        height: height
+        width: 800,
+        height: 500
       });
       var layer = new Konva.Layer();
       stage.add(layer);
@@ -40,10 +40,10 @@ var width = window.innerWidth;
         });
       });
 	  
-	  
+//----------------------------------------the code below is for the textarea-----------------------------------------------------------------------	  
 	  
 	   var textNode = new Konva.Text({
-        text: 'Some text here',
+        text: 'Add your text here.',
         x: 50,
         y: 80,
         fontSize: 20,
@@ -219,7 +219,7 @@ var width = window.innerWidth;
       });
 	  
 	  
-	  
+//-------------------------------------------------------------------------------------------------------------------------------------------------	  
 	  /*
 	 * Transformer
 	 * The way to transform something
