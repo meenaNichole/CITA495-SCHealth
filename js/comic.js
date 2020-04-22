@@ -276,6 +276,16 @@ var width = window.innerWidth;
         currentShape.destroy();
         layer.draw();
       });
+	  
+	  document.getElementById('clone-button').addEventListener('click', () => {
+		var clone = currentShape.clone({
+        x : 50,
+        y : 50
+    });
+		layer.add(clone);
+		layer.draw();
+
+      });
 
       window.addEventListener('click', () => {
         // hide menu 
