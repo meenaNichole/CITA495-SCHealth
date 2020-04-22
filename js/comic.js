@@ -31,12 +31,11 @@ var width = window.innerWidth;
         stage.setPointersPositions(e);
 
         Konva.Image.fromURL(itemURL, function(image) {
-          layer.add(image);
-
-          image.position(stage.getPointerPosition());
-          image.draggable(true);
-
-          layer.draw();
+            layer.add(image);
+		    image.position(stage.getPointerPosition());
+            image.draggable(true);
+			
+            layer.draw();
         });
       });
 	  
