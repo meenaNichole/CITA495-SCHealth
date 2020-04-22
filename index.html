@@ -22,6 +22,12 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 
 
 <body>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+      integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+      crossorigin="anonymous">
+</script>
+
 <script src="js/Konva.js"></script>
 
 
@@ -40,10 +46,14 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 			</div>
 
 </header>
+
+
+<button id="save">Save as PDF</button>
+
 <div class = "parent">
 
-	
 
+	
 	<div id="drag-items">
 		<h1>Images</h1>
 		<img src="https://konvajs.org/assets/yoda.jpg" draggable="true" />
@@ -65,6 +75,10 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 		
 
     </div>
+	
+	
+
+	
 
 	<div id = "container">
 		
