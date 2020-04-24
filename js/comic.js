@@ -4,12 +4,11 @@ var width = window.innerWidth;
       var stage = new Konva.Stage({
         container: 'container',
         width: 800,
-        height: 600
+        height: 500
       });
       var layer = new Konva.Layer();
       stage.add(layer);
 
-      // what is url of dragging element?
       var itemURL = '';
       document
         .getElementById('drag-items')
@@ -24,10 +23,6 @@ var width = window.innerWidth;
 
       con.addEventListener('drop', function(e) {
         e.preventDefault();
-        // now we need to find pointer position
-        // we can't use stage.getPointerPosition() here, because that event
-        // is not registered by Konva.Stage
-        // we can register it manually:
         stage.setPointersPositions(e);
 
         Konva.Image.fromURL(itemURL, function(image) {
@@ -239,7 +234,15 @@ var width = window.innerWidth;
         stage.find('Transformer').destroy();
 
         // create new transformer
-        var tr = new Konva.Transformer();
+        var tr = new Konva.Transformer({
+        keepRatio: true,
+        enabledAnchors: [
+          'top-left',
+          'top-right',
+          'bottom-left',
+          'bottom-right',
+        ],
+      });
         layer.add(tr);
         tr.attachTo(e.target);
         layer.draw();
@@ -312,29 +315,24 @@ var width = window.innerWidth;
 
 //--------------------------------------------------------------Save function------------------------------------------------------------------------
 
-document.getElementById('save').addEventListener('click', function() {
-        var pdf = new jsPDF('l', 'px', [stage.width(), stage.height()]);
-        pdf.setTextColor('#000000');
-        // first add texts
-        stage.find('Text').forEach(text => {
-          const size = text.fontSize() / 0.75; // convert pixels to points
-          pdf.setFontSize(size);
-          pdf.text(text.text(), text.x(), text.y(), {
-            baseline: 'top',
-            angle: -text.getAbsoluteRotation()
-          });
-        });
+   // function from https://stackoverflow.com/a/15832662/512042
+      function downloadURI(uri, name) {
+        var link = document.createElement('a');
+        link.download = name;
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        delete link;
+      }
 
-        // then put image on top of texts (so texts are not visible)
-        pdf.addImage(
-          stage.toDataURL({ pixelRatio: 2 }),
-          0,
-          0,
-          stage.width(),
-          stage.height()
-        );
-
-        pdf.save('canvas.pdf');
-      });
+      document.getElementById('save').addEventListener(
+        'click',
+        function() {
+          var dataURL = stage.toDataURL({ pixelRatio: 3 });
+          downloadURI(dataURL, 'stage.png');
+        },
+        false
+      );
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
