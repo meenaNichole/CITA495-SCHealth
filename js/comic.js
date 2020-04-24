@@ -330,9 +330,18 @@ var width = window.innerWidth;
         'click',
         function() {
           var dataURL = stage.toDataURL({ pixelRatio: 3 });
-          downloadURI(dataURL, 'stage.png');
+          downloadURI(dataURL, 'comic.png');
         },
         false
       );
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------Clear function------------------------------------------------------------------------
+
+  document.getElementById('clear').addEventListener('click', function(e) {
+        // e.target is a clicked Konva.Shape or current stage if you clicked on empty space
+        console.log('clicked on');
+		layer.destroyChildren();
+		layer.draw();
+  });
 //---------------------------------------------------------------------------------------------------------------------------------------------------

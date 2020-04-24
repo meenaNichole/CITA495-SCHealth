@@ -40,7 +40,7 @@ margin:10px;
 
 #drag-items { 
 	grid-area: 1 / 2 / 2 / 3;  
-	height: 500px;
+	height: 600px;
 	overflow-y:scroll;
 	overflow-x:hidden;
 	border: 2px solid  #5383d3;
@@ -83,6 +83,37 @@ margin:10px;
 }
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 
+/*--------------------------------------------------Erase Button---------------------------------------------------------------------*/
+
+#clear {
+	box-shadow: 3px 4px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:5px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:12px 44px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+
+#clear:hover {
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+#clear:active {
+	position:relative;
+	top:1px;
+}
+
+        
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
 /*--------------------------------------------------Save Button---------------------------------------------------------------------*/
 
 #save {
@@ -107,7 +138,6 @@ margin:10px;
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
 	background-color:#378de5;
 }
-
 #save:active {
 	position:relative;
 	top:1px;
