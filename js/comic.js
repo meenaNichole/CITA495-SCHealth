@@ -1,4 +1,19 @@
-var width = window.innerWidth;
+
+	
+	
+	/*var quill = new Quill('#editor-container', {
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, false] }],
+            ['bold', 'italic', 'underline'],
+            ['image', 'code-block']
+          ]
+        },
+        placeholder: 'Compose an epic...',
+        theme: 'snow' // or 'bubble'
+      });
+	  */
+	var width = window.innerWidth;
       var height = window.innerHeight;
 
       var stage = new Konva.Stage({
@@ -23,10 +38,19 @@ var width = window.innerWidth;
 
       con.addEventListener('drop', function(e) {
         e.preventDefault();
+		console.log(e);
         stage.setPointersPositions(e);
 
         Konva.Image.fromURL(itemURL, function(image) {
-            layer.add(image);
+            // get scale
+			var scale = image.scale();
+
+			// set scale
+			image.scale({
+			  x: .2,
+			  y: .2
+			});
+			layer.add(image);
 		    image.position(stage.getPointerPosition());
             image.draggable(true);
 			
@@ -41,14 +65,19 @@ var width = window.innerWidth;
         x: 50,
         y: 80,
         fontSize: 20,
-        draggable: true,
-        width: 200
+        draggable: true
       });
 
 	  function addText(){
-      layer.add(textNode);
+		var clone = textNode.clone({
+			x : 50,
+			y : 50
+		});
+		layer.add(clone);
+		layer.draw();
 
 	  }
+	  
       var tr = new Konva.Transformer({
         node: textNode,
         enabledAnchors: ['middle-left', 'middle-right'],
@@ -345,3 +374,43 @@ var width = window.innerWidth;
 		layer.draw();
   });
 //---------------------------------------------------------------------------------------------------------------------------------------------------
+
+const shape = new Konva.Image({
+        x: 10,
+        y: 10,
+        draggable: true,
+        stroke: 'red',
+        scaleX: 1 / window.devicePixelRatio,
+        scaleY: 1 / window.devicePixelRatio
+      });
+      layer.add(shape);
+
+      layer.draw();
+
+      function renderText() {
+        // convert DOM into image
+        html2canvas(document.querySelector('.ql-editor'), {
+          backgroundColor: 'rgba(0,0,0,0)'
+        }).then(canvas => {
+          // show it inside Konva.Image
+          shape.image(canvas);
+          layer.batchDraw();
+        });
+      }
+
+      // batch updates, so we don't render text too frequently
+      var timeout = null;
+      function requestTextUpdate() {
+        if (timeout) {
+          return;
+        }
+        timeout = setTimeout(function() {
+          timeout = null;
+          renderText();
+        }, 500);
+      }
+
+      // render text on all changes
+      quill.on('text-change', requestTextUpdate);
+      // make initial rendering
+      renderText();
