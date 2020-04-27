@@ -4,7 +4,6 @@
 https://codemyui.com/css-mobile-friendly-comic-book-layout/
 https://codepen.io/mochiron/pen/QyJVrZ
 http://jsbin.com/hujulasaro/1/edit?html,js,output
-
 -->
 
 
@@ -17,11 +16,24 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+    />
 </head>
 
 
 
 <body>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+      integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+      crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 <script src="js/Konva.js"></script>
 
 
@@ -40,39 +52,103 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 			</div>
 
 </header>
-	<h1>Quiz</h1>
 
-		<form>
-			<!-- general description of lesson -->
-			<label for="title"><b>Lesson Name:</b></label>
-			<input type="text" id="title" name="title"><br><br>
-			<label for="description"><b>Assignment Description:<b></label>
-			<input type="text" id="description" name="description"><br><br>
+<script>
+$(function () {
+     $('input[type="file"]').change(function () {
+          if ($(this).val() != "") {
+                 $(this).css('color', '#333');
+          }else{
+                 $(this).css('color', 'transparent');
+          }
+     });
+})
+</script>
 
-		<h3>Questions: </h3>
-			<!-- create questions for students to answer -->
-			<label for="quest1">Question 1:</label><br>
-			<input type="text" id="quest1" name="quest1"><br>
-			<label for="quest2">Question 2:</label><br>
-			<input type="text" id="quest2" name="quest2"><br>
-			<label for="quest3">Question 3:</label><br>
-			<input type="text" id="quest3" name="quest3"><br>
-			<label for="quest4">Question 4:</label><br>
-			<input type="text" id="quest4" name="quest4"><br>
-			<label for="quest5">Question 5:</label><br>
-			<input type="text" id="quest5" name="quest5"><br>
-		<!--BUTTON TO GENERATE PDF BY HITTING SUBMIT  -->
-			<input type="submit" value="Submit">
+<button id="save">Save</button>
+	<button id="clear">Clear</button>
+
+<div class = "parent">
 
 
+	
+	<div id="drag-items">
+		<h1>Add your own image!</h1>
+		<div id="inputContainer">
+			<input type="file" class="custom-file-input" id="file_input">
+		</div>
 
-		</form>
-
-
-
-
-	</div>
+		<hr/>
+		<h1>Characters</h1>
+		<img src="assets/exhausted.png" draggable="true" />
+		<img src="assets/romance.png" draggable="true" />
+		<img src="assets/running.png" draggable="true" />
+		<img src="assets/happy.png" draggable="true" />
+		<img src="assets/balance.png" draggable="true" />
+		<img src="assets/falling.png" draggable="true" />
+		<img src="assets/angry.png" draggable="true" />
+		<img src="assets/elder.png" draggable="true" />
+		<img src="assets/crying.png" draggable="true" />
+		<img src="assets/red flag.png" draggable="true" />
+		<img src="assets/point.png" draggable="true" />
+		<img src="assets/normal.png" draggable="true" />
+		<img src="assets/germ.png" draggable="true" />
+		<img src="assets/germ2.png" draggable="true" />
+		<img src="assets/germ3.png" draggable="true" />
+		<img src="assets/germ4.png" draggable="true" />
+		<hr/>
 		
+		<h1>Props</h1>
+		<img src="assets/car.png" draggable="true" />
+		<img src="assets/house.png" draggable="true" />
+		<img src="assets/tree.png" draggable="true" />
+		<hr/>
+		
+		<h1>Text Features</h1>
+		<!---The editable text field would have taken too long to implement
+		<div id="editor-container">
+		</div>
+		-->
+		<button class="text" onclick="addText(12)">12pt Text</button>
+		<button class="text" onclick="addText(24)">24pt Text</button>
+		<button class="text" onclick="addText(36)">36pt Text</button>
+
+
+
+		</br></br>
+		<img src="assets/speech1.png" draggable="true" />
+		<img src="assets/speech2.png" draggable="true" />
+		<img src="assets/speech3.png" draggable="true" />
+		<img src="assets/speech4.png" draggable="true" />
+		<img src="assets/speech5.png" draggable="true" />
+		<img src="assets/bang.png" draggable="true" />
+		<img src="assets/ouch.png" draggable="true" />
+		<hr/>
+		
+		<h1>Comic Boxes</h1>
+		<img src="assets/comic.png" draggable="true" />
+		<img src="assets/comic2.jpg" draggable="true" />
+
+		
+
+    </div>
+	
+	
+
+	
+
+	<div id = "container">
+		
+	</div>
+	
+	
+	<div id="menu">
+
+      <button id="delete-button">Delete</button><button id="clone-button">Clone</button><button id="up">Front</button><button id="down">Behind</button></div>
+
+    </div>
+	
+</div>		
 
 
 
@@ -82,7 +158,7 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 
 			<div class="footer-right">
 
-				<a href="https://github.com/meenaNichole/CITA495-SCHealth"><i class="fa fa-github"></i></a>
+				<a href="#"><i class="fa fa-github"></i></a>
 
 			</div>
 
@@ -99,6 +175,6 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 			</div>
 
 		</footer>
-
+<script src="js/comic.js"></script>
 </body>
 </html>
