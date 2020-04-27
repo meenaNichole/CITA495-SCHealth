@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     font: normal 16px sans-serif;
 }
+html { overflow-y: scroll; }
 
 .gallery-container h1 {
     text-align: center;
@@ -20,7 +21,7 @@ body {
 }
 
 .tz-gallery {
-    padding: 40px;
+    padding: .5em;
 }
 
 .tz-gallery .thumbnail {
