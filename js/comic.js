@@ -306,6 +306,24 @@
 		layer.draw();
 
       });
+	  
+	  document.getElementById('up').addEventListener(
+        'click',
+        function() {
+          currentShape.moveUp();
+          layer.draw();
+        },
+        false
+      );
+	  
+	    document.getElementById('down').addEventListener(
+        'click',
+        function() {
+          currentShape.moveDown();
+          layer.draw();
+        },
+        false
+      );
 
       window.addEventListener('click', () => {
         // hide menu 
@@ -364,6 +382,7 @@
 		layer.draw();
   });
 //----------------------------------------------------------------------------------------------------------------------------
+
 
 $("#file_input").change(function(e){
 	console.log("this did something");
