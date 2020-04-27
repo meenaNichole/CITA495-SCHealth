@@ -48,21 +48,22 @@
 	  
 //----------------------------------the code below is for the textarea-------------------------------------------------------
 	  
-	
+	/*Please do not alter anything involving the textarea. This took a while to finish, and it isn't even perfect yet*/
 		 
 		var text1 = new Konva.Text({
-        text: 'Edit text and then click add!',
+        text: 'Edit text and then enter!',
         x: 50,
         y: 80,
-        fontSize: 20,
+        fontSize: 12,
         draggable: true,
         width: 200
       });
 	   
-	   function addText(){
+	   function addText(fontSize){
 		  var textNode = text1.clone({
 			  x:0,
-			  y:0
+			  y:0,
+			  fontSize: fontSize
 		  });
 	   
 	
