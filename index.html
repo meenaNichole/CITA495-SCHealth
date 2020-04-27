@@ -32,6 +32,8 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
       integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
       crossorigin="anonymous">
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 <script src="js/Konva.js"></script>
 
@@ -52,6 +54,17 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 
 </header>
 
+<script>
+$(function () {
+     $('input[type="file"]').change(function () {
+          if ($(this).val() != "") {
+                 $(this).css('color', '#333');
+          }else{
+                 $(this).css('color', 'transparent');
+          }
+     });
+})
+</script>
 
 <button id="save">Save</button>
 	<button id="clear">Clear</button>
@@ -61,7 +74,13 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 
 	
 	<div id="drag-items">
-		<h1>Images</h1>
+		<h1>Add your own image!</h1>
+		<div id="inputContainer">
+			<input type="file" class="custom-file-input" id="file_input">
+		</div>
+
+		<hr/>
+		<h1>Characters</h1>
 		<img src="assets/exhausted.png" draggable="true" />
 		<img src="assets/romance.png" draggable="true" />
 		<img src="assets/running.png" draggable="true" />
@@ -71,12 +90,21 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 		<img src="assets/angry.png" draggable="true" />
 		<img src="assets/elder.png" draggable="true" />
 		<img src="assets/crying.png" draggable="true" />
-		<img src="assets/car.png" draggable="true" />
-		<img src="assets/tree.png" draggable="true" />
 		<img src="assets/red flag.png" draggable="true" />
 		<img src="assets/point.png" draggable="true" />
 		<img src="assets/normal.png" draggable="true" />
+		<img src="assets/germ.png" draggable="true" />
+		<img src="assets/germ2.png" draggable="true" />
+		<img src="assets/germ3.png" draggable="true" />
+		<img src="assets/germ4.png" draggable="true" />
 		<hr/>
+		
+		<h1>Props</h1>
+		<img src="assets/car.png" draggable="true" />
+		<img src="assets/house.png" draggable="true" />
+		<img src="assets/tree.png" draggable="true" />
+		<hr/>
+		
 		<h1>Text Features</h1>
 		<!---The editable text field would have taken too long to implement
 		<div id="editor-container">
@@ -94,6 +122,8 @@ http://jsbin.com/hujulasaro/1/edit?html,js,output
 		<img src="assets/speech3.png" draggable="true" />
 		<img src="assets/speech4.png" draggable="true" />
 		<img src="assets/speech5.png" draggable="true" />
+		<img src="assets/bang.png" draggable="true" />
+		<img src="assets/ouch.png" draggable="true" />
 		<hr/>
 		
 		<h1>Comic Boxes</h1>

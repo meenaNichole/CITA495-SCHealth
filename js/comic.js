@@ -364,3 +364,37 @@
 		layer.draw();
   });
 //----------------------------------------------------------------------------------------------------------------------------
+
+$("#file_input").change(function(e){
+	console.log("this did something");
+	 var URL = window.webkitURL || window.URL;
+    var url = URL.createObjectURL(e.target.files[0]);
+    var img = new Image();
+    img.src = url;
+
+
+    img.onload = function() {
+
+      var img_width = img.width;
+      var img_height = img.height;
+
+      // calculate dimensions to get max 300px
+      var max = 300;
+      var ratio = (img_width > img_height ? (img_width / max) : (img_height / max))
+
+      // now load the Konva image
+      var theImg = new Konva.Image({
+        image: img,
+        x: 50,
+        y: 30,
+        width: img_width/ratio,
+        height: img_height/ratio,
+        draggable: true,
+        rotation: 20
+      });
+
+      layer.add(theImg);
+      layer.draw();
+    }
+
+});
