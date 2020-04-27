@@ -389,8 +389,7 @@ $("#file_input").change(function(e){
         y: 30,
         width: img_width/ratio,
         height: img_height/ratio,
-        draggable: true,
-        rotation: 20
+        draggable: true
       });
 
       layer.add(theImg);
