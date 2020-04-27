@@ -1,18 +1,5 @@
 
-	
-	
-	/*var quill = new Quill('#editor-container', {
-        modules: {
-          toolbar: [
-            [{ header: [1, 2, false] }],
-            ['bold', 'italic', 'underline'],
-            ['image', 'code-block']
-          ]
-        },
-        placeholder: 'Compose an epic...',
-        theme: 'snow' // or 'bubble'
-      });
-	  */
+
 	var width = window.innerWidth;
       var height = window.innerHeight;
 
@@ -58,26 +45,29 @@
         });
       });
 	  
-//----------------------------------------the code below is for the textarea-----------------------------------------------------------------------	  
 	  
-	   var textNode = new Konva.Text({
-        text: 'Add your text here.',
+//----------------------------------the code below is for the textarea-------------------------------------------------------
+	  
+	
+		 
+		var text1 = new Konva.Text({
+        text: 'Edit text and then click add!',
         x: 50,
         y: 80,
         fontSize: 20,
-        draggable: true
+        draggable: true,
+        width: 200
       });
+	   
+	   function addText(){
+		  var textNode = text1.clone({
+			  x:0,
+			  y:0
+		  });
+	   
+	
+      layer.add(textNode);
 
-	  function addText(){
-		var clone = textNode.clone({
-			x : 50,
-			y : 50
-		});
-		layer.add(clone);
-		layer.draw();
-
-	  }
-	  
       var tr = new Konva.Transformer({
         node: textNode,
         enabledAnchors: ['middle-left', 'middle-right'],
@@ -122,8 +112,6 @@
           y: stageBox.top + textPosition.y
         };
 
-		
-
         // create textarea and style it
         var textarea = document.createElement('textarea');
         document.body.appendChild(textarea);
@@ -142,7 +130,6 @@
         textarea.style.border = 'none';
         textarea.style.padding = '0px';
         textarea.style.margin = '0px';
-        textarea.style.overflow = 'hidden';
         textarea.style.background = 'none';
         textarea.style.outline = 'none';
         textarea.style.resize = 'none';
@@ -175,7 +162,6 @@
         textarea.style.height = textarea.scrollHeight + 3 + 'px';
 
         textarea.focus();
-		
 
         function removeTextarea() {
           textarea.parentNode.removeChild(textarea);
@@ -239,11 +225,13 @@
         setTimeout(() => {
           window.addEventListener('click', handleOutsideClick);
         });
-      });
+      }); 
+		 
+	   }
+	 
 	  
-	  
-//-------------------------------------------------------------------------------------------------------------------------------------------------	  
-//-----------------------------------------------Transform method----------------------------------------------------------------------------------	
+//---------------------------------------------------------------------------------------------------------------------------
+//------------------------------------Transform method--------------------------------------------------------------------	
 	/*
 	 * Transformer
 	 * The way to transform something
@@ -277,9 +265,9 @@
         layer.draw();
       });
 	  
-//---------------------------------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
 
-//----------------------------------------------------------Right-click Menu-------------------------------------------------------------------------
+//------------------------------------------Right-click Menu------------------------------------------------------------------
 
 
 /*
@@ -340,9 +328,9 @@
       });
 
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------Save function------------------------------------------------------------------------
+//--------------------------------------------Save function-------------------------------------------------------------------
 
    // function from https://stackoverflow.com/a/15832662/512042
       function downloadURI(uri, name) {
@@ -364,8 +352,9 @@
         false
       );
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------Clear function------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
+
+//-------------------------------------Clear function-------------------------------------------------------------------------
 
   document.getElementById('clear').addEventListener('click', function(e) {
         // e.target is a clicked Konva.Shape or current stage if you clicked on empty space
@@ -373,44 +362,4 @@
 		layer.destroyChildren();
 		layer.draw();
   });
-//---------------------------------------------------------------------------------------------------------------------------------------------------
-
-const shape = new Konva.Image({
-        x: 10,
-        y: 10,
-        draggable: true,
-        stroke: 'red',
-        scaleX: 1 / window.devicePixelRatio,
-        scaleY: 1 / window.devicePixelRatio
-      });
-      layer.add(shape);
-
-      layer.draw();
-
-      function renderText() {
-        // convert DOM into image
-        html2canvas(document.querySelector('.ql-editor'), {
-          backgroundColor: 'rgba(0,0,0,0)'
-        }).then(canvas => {
-          // show it inside Konva.Image
-          shape.image(canvas);
-          layer.batchDraw();
-        });
-      }
-
-      // batch updates, so we don't render text too frequently
-      var timeout = null;
-      function requestTextUpdate() {
-        if (timeout) {
-          return;
-        }
-        timeout = setTimeout(function() {
-          timeout = null;
-          renderText();
-        }, 500);
-      }
-
-      // render text on all changes
-      quill.on('text-change', requestTextUpdate);
-      // make initial rendering
-      renderText();
+//----------------------------------------------------------------------------------------------------------------------------
